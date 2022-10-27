@@ -21,6 +21,6 @@ namespace TicketBook.Models
 
         [Required]
         public DateTime FirstGameDate { get; set; }
-        public DateTime LastGameDate { get; set; }
+        public DateTime? LastGameDate { get; set; }
     }
 }

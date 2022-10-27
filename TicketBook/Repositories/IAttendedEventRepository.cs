@@ -8,6 +8,7 @@ namespace TicketBook.Repositories
     {
         void AddAttendedEvent(AttendedEvent attendedEvent);
         void DeleteAttendedEvent(int eventId);
+        List<AttendedEvent> GetAllAttendedEvents();
         List<AttendedEvent> GetCurrentUsersEvents(int userId);
         AttendedEvent GetAttendedEventById(int eventId);
         AttendedEvent ReadAttendedEvent(SqlDataReader reader);

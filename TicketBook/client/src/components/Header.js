@@ -20,8 +20,8 @@ export default function Header({ isLoggedIn }) {
         <div>
             <Navbar className="navbar navbar-dark bg-dark" expand="md">
                 <NavbarBrand tag={RRNavLink} to="/">
-                    <img className="headerLogo" src={process.env.PUBLIC_URL + "/quill-logo.png"} />
-                    TABLOID
+                    {/* <img className="headerLogo" src={process.env.PUBLIC_URL + "/quill-logo.png"} /> */}
+                    Ticketbook
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -31,6 +31,9 @@ export default function Header({ isLoggedIn }) {
                             <>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/">HOME</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
                                 </NavItem>
                                 {/* <NavItem>
                   <NavLink tag={RRNavLink} to="/post">POSTS</NavLink>

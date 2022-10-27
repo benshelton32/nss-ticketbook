@@ -1,4 +1,7 @@
 export const AttendedEvent = ({ attendedEvent }) => {
+
+
+
     return (
         <section className="eventContainer">
             <header className="dateAndLocationContainer">
@@ -8,33 +11,37 @@ export const AttendedEvent = ({ attendedEvent }) => {
             </header>
 
             <section className="teamAndScoreContainer">
-                <div className="homeTeamContainer">
-                    <div className="homeTeamLabel">HOME</div>
-                    <div className="homeTeamLogo">{attendedEvent.homeTeam.logo}</div>
-                    <div className="homeTeamScore">{attendedEvent.homeTeamScore}</div>
+                <div className="teamContainer">
+                    <div className="teamLabel">HOME</div>
+                    <div className="teamLogo"><img className="teamLogo" src={process.env.PUBLIC_URL + `${attendedEvent.homeTeam.logo}`} /></div>
+                    {/* <div className="teamAbbreviation">{attendedEvent.homeTeam.abbreviation}</div> */}
+                    <div className="teamScore">{attendedEvent.homeTeamScore}</div>
+                    <div className="teamAbbreviation">{attendedEvent.homeTeam.abbreviation}</div>
                 </div>
                 <div className="finalAndOvertimeContainer">
-                    <div>Final</div>
+                    <div className="final">Final</div>
                 </div>
-                <div className="awayTeamContainer">
-                    <div className="awayTeamLabel">AWAY</div>
-                    <div className="awayTeamLogo">{attendedEvent.awayTeam.logo}</div>
-                    <div className="awayTeamScore">{attendedEvent.awayTeamScore}</div>
+                <div className="teamContainer">
+                    <div className="teamLabel">AWAY</div>
+                    {/* <div>{attendedEvent.awayTeam.abbreviation}</div> */}
+                    <div className="teamLogoContainer"><img className="teamLogo" src={process.env.PUBLIC_URL + `${attendedEvent.awayTeam.logo}`} /></div>
+                    <div className="teamScore">{attendedEvent.awayTeamScore}</div>
+                    <div className="teamAbbreviation">{attendedEvent.awayTeam.abbreviation}</div>
                 </div>
             </section>
 
             <section className="seatLocationContainer">
-                <div className="sectionContainer">
-                    <div className="sectionLabel">Section</div>
-                    <div className="sectionLocation">{attendedEvent.section}</div>
+                <div className="seatInfoContainer">
+                    <div className="seatInfoLabel">Section</div>
+                    <div className="seatInfoLocation">{attendedEvent.section}</div>
                 </div>
-                <div className="rowContainer">
-                    <div className="rowLabel">Row</div>
-                    <div className="rowLocation">{attendedEvent.row}</div>
+                <div className="seatInfoContainer">
+                    <div className="seatInfoLabel">Row</div>
+                    <div className="seatInfoLocation">{attendedEvent.row}</div>
                 </div>
-                <div className="seatContainer">
-                    <div className="seatLabel">Seat</div>
-                    <div className="seatLocation">{attendedEvent.seat}</div>
+                <div className="seatInfoContainer">
+                    <div className="seatInfoLabel">Seat</div>
+                    <div className="seatInfoLocation">{attendedEvent.seat}</div>
                 </div>
             </section>
             <footer className="buttons">

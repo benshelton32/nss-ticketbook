@@ -10,22 +10,36 @@ namespace TicketBook.Controllers
     public class AttendedEventController : ControllerBase
     {
         private readonly IAttendedEventRepository _attendedEventRepository;
-        public AttendedEventController(IAttendedEventRepository attendedEventRepository)
+        private readonly IUserRepository _userRepository;
+        public AttendedEventController(IAttendedEventRepository attendedEventRepository, IUserRepository userRepository)
         {
             _attendedEventRepository = attendedEventRepository;
+            _userRepository = userRepository;
         }
 
-        private int GetCurrentUserProfileId()
+        //private int GetCurrentUserProfileId()
+        //{
+        //    string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    return int.Parse(id);
+        //}
+
+        private User GetCurrentUser()
         {
-            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return int.Parse(id);
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _userRepository.GetByFirebaseUserId(firebaseUserId);
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var userId = GetCurrentUserProfileId();
-            var currentUsersAttendedEvents = _attendedEventRepository.GetCurrentUsersEvents(userId);
+            return Ok(_attendedEventRepository.GetAllAttendedEvents());
+        }
+
+        [HttpGet("MyEvents")]
+        public IActionResult GetUsersEvents()
+        {
+            var currentUser = GetCurrentUser();
+            var currentUsersAttendedEvents = _attendedEventRepository.GetCurrentUsersEvents(currentUser.Id);
             return Ok(currentUsersAttendedEvents);
         }
 

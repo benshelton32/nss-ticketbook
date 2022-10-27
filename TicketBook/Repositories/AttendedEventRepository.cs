@@ -8,6 +8,47 @@ namespace TicketBook.Repositories
     public class AttendedEventRepository : BaseRepository, IAttendedEventRepository
     {
         public AttendedEventRepository(IConfiguration config) : base(config) { }
+
+        public List<AttendedEvent> GetAllAttendedEvents()
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT ae.Id, ae.UserId, ae.HomeTeamId, ae.HomeTeamScore, ae.AwayTeamId, ae.AwayTeamScore,
+                                               ae.StadiumId, ae.Date AS EventDate, ae.Section, ae.Row, ae.Seat, ae.Overtime,
+                                               ae.LengthOfOvertime, ae.Notes, u.FirstName, u.LastName, u.Email, u.FirebaseUserId,
+                                               l.Name AS LeagueName, l.Abbreviation AS LeagueAbbreviation, l.Logo AS LeagueLogo, l.SportId,
+                                               ht.Name AS HomeTeamName, ht.Abbreviation AS HomeTeamAbbreviation, 
+                                               ht.Location AS HomeTeamLocation, ht.Logo AS HomeTeamLogo, ht.LeagueId, 
+                                               awt.Name AS AwayTeamName, awt.Abbreviation AS AwayTeamAbbreviation, 
+                                               awt.Location AS AwayTeamLocation, awt.Logo AS AwayTeamLogo, awt.LeagueId, 
+                                               st.Name AS StadiumName, st.Location AS StadiumLocation, st.TeamId AS StadiumHomeTeam, 
+                                               st.FirstGameDate AS StadiumFirstGameDate, st.LastGameDate AS StadiumLastGameDate
+                                          FROM AttendedEvent ae
+                                     LEFT JOIN [User] u ON u.Id = ae.UserId
+                                     LEFT JOIN Team ht ON ht.Id = ae.HomeTeamId
+                                     LEFT JOIN League l on l.Id = ht.LeagueId
+                                     LEFT JOIN Team awt ON awt.Id = ae.AwayTeamId
+                                     LEFT JOIN Stadium st ON st.Id = ae.StadiumId
+                                      ORDER BY ae.Date DESC";
+                    var reader = cmd.ExecuteReader();
+
+                    var events = new List<AttendedEvent>();
+
+                    while (reader.Read())
+                    {
+                        events.Add(ReadAttendedEvent(reader));
+                    }
+
+                    reader.Close();
+
+                    return events;
+                }
+            }
+        }
+
         public List<AttendedEvent> GetCurrentUsersEvents(int userId)
         {
             using (var conn = Connection)
@@ -29,7 +70,7 @@ namespace TicketBook.Repositories
                                      LEFT JOIN [User] u ON u.Id = ae.UserId
                                      LEFT JOIN Team ht ON ht.Id = ae.HomeTeamId
                                      LEFT JOIN League l on l.Id = ht.LeagueId
-                                     LEFT JOIN Team awt ON at.Id = ae.AwayTeamId
+                                     LEFT JOIN Team awt ON awt.Id = ae.AwayTeamId
                                      LEFT JOIN Stadium st ON st.Id = ae.StadiumId
                                          WHERE ae.UserId = @userId
                                       ORDER BY ae.Date DESC";
@@ -71,7 +112,7 @@ namespace TicketBook.Repositories
                                      LEFT JOIN [User] u ON u.Id = ae.UserId
                                      LEFT JOIN Team ht ON ht.Id = ae.HomeTeamId
                                      LEFT JOIN League l on l.Id = ht.LeagueId
-                                     LEFT JOIN Team awt ON at.Id = ae.AwayTeamId
+                                     LEFT JOIN Team awt ON awt.Id = ae.AwayTeamId
                                      LEFT JOIN Stadium st ON st.Id = ae.StadiumId
                                          WHERE ae.Id = @id";
 
@@ -235,14 +276,16 @@ namespace TicketBook.Repositories
                     Location = reader.GetString(reader.GetOrdinal("StadiumLocation")),
                     TeamId = reader.GetInt32(reader.GetOrdinal("StadiumHomeTeam")),
                     FirstGameDate = reader.GetDateTime(reader.GetOrdinal("StadiumFirstGameDate")),
-                    LastGameDate = reader.GetDateTime(reader.GetOrdinal("StadiumLastGameDate"))
+                    LastGameDate = reader.IsDBNull(reader.GetOrdinal("StadiumLastGameDate"))
+                                   ? null : reader.GetDateTime(reader.GetOrdinal("StadiumLastGameDate"))
                 },
                 Date = reader.GetDateTime(reader.GetOrdinal("EventDate")),
                 Section = reader.GetString(reader.GetOrdinal("Section")),
                 Row = reader.GetString(reader.GetOrdinal("Row")),
                 Seat = reader.GetString(reader.GetOrdinal("Seat")),
                 Overtime = reader.GetBoolean(reader.GetOrdinal("Overtime")),
-                LengthOfOvertime = reader.GetString(reader.GetOrdinal("LengthOfOvertime"))
+                LengthOfOvertime = reader.IsDBNull(reader.GetOrdinal("LengthOfOvertime"))
+                                   ? null : reader.GetString(reader.GetOrdinal("LengthOfOvertime"))
             };
         }
     }

@@ -1,7 +1,12 @@
 const _apiUrl = "/api/AttendedEvent";
 
-export const getUsersAttendedEvents = () => {
+export const getAllAttendedEvents = () => {
     return fetch(_apiUrl)
+        .then((res) => res.json())
+};
+
+export const getUsersAttendedEvents = () => {
+    return fetch(_apiUrl + '/MyEvents')
         .then((res) => res.json())
 };
 
