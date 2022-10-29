@@ -28,11 +28,11 @@ const _saveUser = (userProfile) => {
 
 
 export const getToken = () => {
-    const currentUser = firebase.auth().currentUser;
+    const currentUser = firebase?.auth()?.currentUser;
     if (!currentUser) {
         throw new Error("Cannot get current user. Did you forget to login?");
     }
-    return currentUser.getIdToken();
+    return currentUser?.getIdToken();
 };
 
 

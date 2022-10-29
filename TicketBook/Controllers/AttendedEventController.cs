@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TicketBook.Models;
-using TicketBook.Repositories;
+using TicketBook.Repositories.Interfaces;
 
 namespace TicketBook.Controllers
 {
@@ -35,15 +35,15 @@ namespace TicketBook.Controllers
             return Ok(_attendedEventRepository.GetAllAttendedEvents());
         }
 
-        [HttpGet("MyEvents")]
+        [HttpGet("CurrentUsersEvents")]
         public IActionResult GetUsersEvents()
         {
             var currentUser = GetCurrentUser();
-            var currentUsersAttendedEvents = _attendedEventRepository.GetCurrentUsersEvents(currentUser.Id);
-            return Ok(currentUsersAttendedEvents);
+            //var currentUsersAttendedEvents = _attendedEventRepository.GetCurrentUsersEvents(currentUser.Id);
+            return Ok(_attendedEventRepository.GetCurrentUsersEvents(currentUser.Id));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{eventId}")]
         public IActionResult Get(int eventId)
         {
             var attendedEvent = _attendedEventRepository.GetAttendedEventById(eventId);
@@ -62,7 +62,7 @@ namespace TicketBook.Controllers
             return CreatedAtAction("Get", new { id = attendedEvent.Id }, attendedEvent);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{eventId}")]
         public IActionResult Put(int eventId, AttendedEvent attendedEvent)
         {
             attendedEvent.Id = eventId;
@@ -70,7 +70,7 @@ namespace TicketBook.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{eventId}")]
         public IActionResult Delete(int eventId)
         {
             _attendedEventRepository.DeleteAttendedEvent(eventId);

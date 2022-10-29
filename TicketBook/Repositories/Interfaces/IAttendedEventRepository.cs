@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using TicketBook.Models;
 
-namespace TicketBook.Repositories
+namespace TicketBook.Repositories.Interfaces
 {
     public interface IAttendedEventRepository
     {

@@ -1,3 +1,5 @@
+import { getToken } from "./authManager";
+
 const _apiUrl = "/api/AttendedEvent";
 
 export const getAllAttendedEvents = () => {
@@ -6,8 +8,21 @@ export const getAllAttendedEvents = () => {
 };
 
 export const getUsersAttendedEvents = () => {
-    return fetch(_apiUrl + '/MyEvents')
-        .then((res) => res.json())
+    return getToken().then((token) => {
+        fetch(_apiUrl + '/CurrentUsersEvents', {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return Error("An unknown error occured");
+                }
+            })
+    })
 };
 
 export const addAttendedEvent = (attendedEvent) => {

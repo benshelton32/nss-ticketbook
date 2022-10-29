@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using TicketBook.Models;
+using TicketBook.Repositories.Interfaces;
 
 namespace TicketBook.Repositories
 {
@@ -252,6 +253,7 @@ namespace TicketBook.Repositories
                     {
                         Id = reader.GetInt32(reader.GetOrdinal("LeagueId")),
                         Name = reader.GetString(reader.GetOrdinal("LeagueName")),
+                        Abbreviation = reader.GetString(reader.GetOrdinal("LeagueAbbreviation")),
                         Logo = reader.GetString(reader.GetOrdinal("LeagueLogo")),
                         SportId = reader.GetInt32(reader.GetOrdinal("SportId"))
                     },
@@ -285,7 +287,8 @@ namespace TicketBook.Repositories
                 Seat = reader.GetString(reader.GetOrdinal("Seat")),
                 Overtime = reader.GetBoolean(reader.GetOrdinal("Overtime")),
                 LengthOfOvertime = reader.IsDBNull(reader.GetOrdinal("LengthOfOvertime"))
-                                   ? null : reader.GetString(reader.GetOrdinal("LengthOfOvertime"))
+                                   ? null : reader.GetString(reader.GetOrdinal("LengthOfOvertime")),
+                Notes = reader.GetString(reader.GetOrdinal("Notes")),
             };
         }
     }

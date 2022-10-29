@@ -26,7 +26,7 @@ export const AttendedEventsList = () => {
 
             <div className="eventListContainer">
                 {
-                    initialAttendedEvents.map((attendedEvent) => (
+                    initialAttendedEvents?.map((attendedEvent) => (
                         <AttendedEvent attendedEvent={attendedEvent} key={attendedEvent.id} />
                     ))
                 }

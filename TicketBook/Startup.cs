@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketBook.Repositories;
+using TicketBook.Repositories.Interfaces;
 
 namespace TicketBook
 {
@@ -31,6 +32,9 @@ namespace TicketBook
         {
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IAttendedEventRepository, AttendedEventRepository>();
+            services.AddTransient<ILeagueRepository, LeagueRepository>();
+            services.AddTransient<ITeamRepository, TeamRepository>();
+            services.AddTransient<IStadiumRepository, StadiumRepository>();
 
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
             var googleTokenUrl = $"https://securetoken.google.com/{firebaseProjectId}";

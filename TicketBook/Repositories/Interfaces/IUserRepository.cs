@@ -1,6 +1,6 @@
 ﻿using TicketBook.Models;
 
-namespace TicketBook.Repositories
+namespace TicketBook.Repositories.Interfaces
 {
     public interface IUserRepository
     {
