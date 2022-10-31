@@ -1,11 +1,15 @@
+import { Navigate } from "react-router-dom"
+import { Button, Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap"
+import { useNavigate, useParams } from "react-router-dom"
+
 export const AttendedEvent = ({ attendedEvent }) => {
 
-
+    const navigate = useNavigate()
 
     return (
         <section className="eventContainer">
             <header className="dateAndLocationContainer">
-                <div className="eventDate">{attendedEvent.date}</div>
+                <div className="eventDate">{new Date(attendedEvent.date).toLocaleDateString()}</div>
                 <div className="stadiumName">{attendedEvent.stadium.name}</div>
                 <div className="stadiumLocation">{attendedEvent.stadium.location}</div>
             </header>
@@ -46,7 +50,8 @@ export const AttendedEvent = ({ attendedEvent }) => {
             </section>
             <footer className="buttons">
                 <div className="detailsButton">
-                    <button>Details</button>
+                    <button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</button>
+                    {/* <Button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</Button> */}
                 </div>
                 <div className="deleteButton">
                     <button>Delete</button>

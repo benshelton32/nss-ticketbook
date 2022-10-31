@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using TicketBook.Models;
@@ -160,8 +161,17 @@ namespace TicketBook.Repositories
                     cmd.Parameters.AddWithValue("@Row", attendedEvent.Row);
                     cmd.Parameters.AddWithValue("@Seat", attendedEvent.Seat);
                     cmd.Parameters.AddWithValue("@Overtime", attendedEvent.Overtime);
-                    cmd.Parameters.AddWithValue("@LengthOfOvertime", attendedEvent.LengthOfOvertime);
                     cmd.Parameters.AddWithValue("@Notes", attendedEvent.Notes);
+
+                    // nullable columns
+                    if (attendedEvent.LengthOfOvertime == null)
+                    {
+                        cmd.Parameters.AddWithValue("@LengthOfOvertime", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@LengthOfOvertime", attendedEvent.LengthOfOvertime);
+                    }
 
                     attendedEvent.Id = (int)cmd.ExecuteScalar();
                 }

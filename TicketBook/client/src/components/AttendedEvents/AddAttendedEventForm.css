@@ -1,0 +1,89 @@
+.formTeamLogo {
+    width: 1.5rem;
+}
+
+.eventFormContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.eventForm {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    /* width: fit-content; */
+}
+
+.leagueAndDateFormContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+}
+
+.dateFormContainer {
+    margin-left: 1rem;
+}
+
+.ticketInfoFormContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.ticketInfoFormHeader {
+    padding-top: 1rem;
+}
+
+.form-group--ticketInfo {
+    margin: 0rem 1rem;
+}
+
+#eventFormControl--ticketInfo {
+    width: 8.5rem;
+}
+
+.teamFormContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.teamsFormHeader {
+    padding-top: 1rem;
+}
+
+.notesFormContainer {
+    padding: 1rem 0rem;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+
+}
+
+#cancelButton {
+    margin-left: 0.5rem;
+    width: 7rem;
+}
+
+#cancelButton:hover {
+    transition: 0.7s;
+}
+
+#addEventButton {
+    margin-left: 0.5rem;
+    width: 7rem;
+    background-color: #FA8072;
+    border-color: #FA8072;
+}
+
+#addEventButton:hover {
+    background-color: #e17367;
+    transition: 0.7s;
+}

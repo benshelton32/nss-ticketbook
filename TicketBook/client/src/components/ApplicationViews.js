@@ -4,6 +4,8 @@ import Login from "./Login";
 import Register from "./Register";
 import Hello from "./Hello";
 import { AttendedEventsList } from "./AttendedEvents/AttendedEventList";
+import { AttendedEventDetail } from "./AttendedEvents/AttendedEventDetail";
+import { AddAttendedEventForm } from "./AttendedEvents/AddAttendedEventForm";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
@@ -17,6 +19,8 @@ export default function ApplicationViews({ isLoggedIn }) {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="myEvents" element={<AttendedEventsList />} />
+                    <Route path="myEvents/:attendedEventId" element={<AttendedEventDetail />} />
+                    <Route path="myEvents/create" element={<AddAttendedEventForm />} />
                     {/* <Route path="post" element={<PostList />} />
             <Route path='post/:postId' element={<PostDetail />} />
             <Route path='post/:postId/comments' element={<CommentList />} />

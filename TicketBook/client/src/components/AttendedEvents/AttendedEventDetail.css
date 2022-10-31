@@ -1,0 +1,18 @@
+.gameDetailsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.detailsTeamLogo {
+    width: 5rem;
+}
+
+.detailsTeamContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.gameInfoContainer {
+    display: flex;
+    flex-direction: row;
+}

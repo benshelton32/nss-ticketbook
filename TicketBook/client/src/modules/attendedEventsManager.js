@@ -25,14 +25,37 @@ export const getUsersAttendedEvents = () => {
     })
 };
 
+// export const addAttendedEvent = (attendedEvent) => {
+//     return fetch(_apiUrl, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(attendedEvent),
+//     });
+// };
+
 export const addAttendedEvent = (attendedEvent) => {
-    return fetch(_apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(attendedEvent),
-    });
+    return getToken().then((token) => {
+        fetch(_apiUrl, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(attendedEvent),
+        }).then((resp) => {
+            if (resp.ok) {
+                return resp.json();
+            } else if (resp.status === 401) {
+                throw new Error("Unauthorized");
+            } else {
+                throw new Error(
+                    "An unknown error occurred while trying to save new event.",
+                );
+            }
+        });
+    });;
 };
 
 export const getAttendedEventById = (eventId) => {

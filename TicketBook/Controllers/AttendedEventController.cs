@@ -59,6 +59,9 @@ namespace TicketBook.Controllers
         {
             _attendedEventRepository.AddAttendedEvent(attendedEvent);
 
+            var currentUser = GetCurrentUser();
+            attendedEvent.UserId = currentUser.Id;
+
             return CreatedAtAction("Get", new { id = attendedEvent.Id }, attendedEvent);
         }
 
