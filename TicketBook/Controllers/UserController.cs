@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using TicketBook.Models;
-using TicketBook.Repositories;
+using TicketBook.Repositories.Interfaces;
 
 namespace TicketBook.Controllers
 {

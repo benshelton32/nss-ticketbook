@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using TicketBook.Utils;
 using TicketBook.Models;
+using TicketBook.Repositories.Interfaces;
 
 namespace TicketBook.Repositories
 {

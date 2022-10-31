@@ -1,0 +1,111 @@
+.articleContainer {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.gameDetailsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.gameInfoAndNotesContainer {
+    padding: 0rem 1.5rem;
+}
+
+.detailsTeamLogo {
+    width: 5rem;
+}
+
+.detailsTeamLogoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.detailsTeamContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.detailsTeamNameAndLogoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gameInfoContainer {
+    display: flex;
+    flex-direction: row;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.headerAndButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
+.buttonsDetailsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* .stadiumAndTicketInfoContainer {
+    padding: 1rem;
+    border: black solid 1px;
+    border-radius: 15px;
+} */
+
+.stadiumAndTicketInfoContainer {
+    padding: 1rem;
+    border-right: black solid 1px;
+    /* border-radius: 15px; */
+}
+
+.detailsTeamScore {
+    padding: 1.5rem 2rem;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.deatilsTeamName {
+    padding: 0rem 1rem 1rem 1rem;
+    font-size: 20px;
+}
+
+.finalContainer {
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notesContainer {
+    padding: 1rem;
+}
+
+.buttonsDetailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailsEditButton {
+    margin: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detailsDeleteButton {
+    /* margin: 0rem 1rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

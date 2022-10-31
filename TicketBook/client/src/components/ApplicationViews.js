@@ -3,6 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Hello from "./Hello";
+import { AttendedEventsList } from "./AttendedEvents/AttendedEventList";
+import { AttendedEventDetail } from "./AttendedEvents/AttendedEventDetail";
+import { AddAttendedEventForm } from "./AttendedEvents/AddAttendedEventForm";
+import { EditAttendedEventForm } from "./AttendedEvents/EditAttendedEventForm";
 
 export default function ApplicationViews({ isLoggedIn }) {
     return (
@@ -15,20 +19,10 @@ export default function ApplicationViews({ isLoggedIn }) {
                     />
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
-                    {/* <Route path="post" element={<PostList />} />
-            <Route path='post/:postId' element={<PostDetail />} />
-            <Route path='post/:postId/comments' element={<CommentList />} />
-            <Route path="tag" element={<TagList />} />
-            <Route path="tag/create" element={<TagCreate />} />
-            <Route path="tag/edit/:tagId" element={<TagEdit />} />
-            <Route path="category" element={<CategoryList />} />
-            <Route path="category/edit/:categoryId" element={<CategoryEdit />} />
-            <Route path="userProfile" element={<UserProfileList />} />
-            <Route
-              path="userProfile/:firebaseUserId"
-              element={<UserProfileDetailsList />}
-            /> */}
-                    {/* <Route path="UserProfile" element={<UserProfileDetailsList />} /> */}
+                    <Route path="myEvents" element={<AttendedEventsList />} />
+                    <Route path="myEvents/create" element={<AddAttendedEventForm />} />
+                    <Route path="myEvents/edit/:attendedEventId" element={<EditAttendedEventForm />} />
+                    <Route path="myEvents/:attendedEventId" element={<AttendedEventDetail />} />
 
                     <Route path="*" element={<p>Whoops, nothing here...</p>} />
                 </Route>

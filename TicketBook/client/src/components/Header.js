@@ -10,18 +10,19 @@ import {
     NavLink,
 } from "reactstrap";
 import { logout } from "../modules/authManager";
-// import "./Header.css";
+import "./Header.css";
 
 export default function Header({ isLoggedIn }) {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
-            <Navbar className="navbar navbar-dark bg-dark" expand="md">
+        <div className="headerConatiner">
+            <Navbar className="navbar navbar-dark" expand="md" style={{ backgroundColor: '#003366' }}>
+                {/* <Navbar expand="md"> */}
                 <NavbarBrand tag={RRNavLink} to="/">
-                    <img className="headerLogo" src={process.env.PUBLIC_URL + "/quill-logo.png"} />
-                    TABLOID
+                    <img className="headerLogo" src={process.env.PUBLIC_URL + "/ticketbook-logo.png"} />
+                    {/* Ticketbook */}
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -31,6 +32,12 @@ export default function Header({ isLoggedIn }) {
                             <>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/">HOME</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
                                 </NavItem>
                                 {/* <NavItem>
                   <NavLink tag={RRNavLink} to="/post">POSTS</NavLink>
@@ -45,7 +52,7 @@ export default function Header({ isLoggedIn }) {
                   <NavLink tag={RRNavLink} to="/UserProfile">USERPROFILE</NavLink>
                 </NavItem> */}
                                 <NavItem>
-                                    <NavLink onClick={logout}>LOGOUT</NavLink>
+                                    <NavLink onClick={logout} to="/login">LOGOUT</NavLink>
                                 </NavItem>
                             </>
                         )}
@@ -66,6 +73,6 @@ export default function Header({ isLoggedIn }) {
                     </Nav>
                 </Collapse>
             </Navbar>
-        </div>
+        </div >
     );
 }

@@ -29,13 +29,13 @@ namespace TicketBook.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [MaxLength(10)]
+        [MaxLength(5)]
         public string Section { get; set; }
 
-        [MaxLength(10)]
+        [MaxLength(5)]
         public string Row { get; set; }
 
-        [MaxLength(10)]
+        [MaxLength(5)]
         public string Seat { get; set; }
         public bool Overtime { get; set; }
 
