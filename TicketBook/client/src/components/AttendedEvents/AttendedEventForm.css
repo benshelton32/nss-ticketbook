@@ -1,6 +1,4 @@
-.formTeamLogo {
-    width: 1.5rem;
-}
+/* Add Form */
 
 .eventFormContainer {
     display: flex;
@@ -22,8 +20,8 @@
     padding: 1rem 0rem;
 }
 
-.dateFormContainer {
-    margin-left: 1rem;
+.leagueFormContainer {
+    margin-right: 1rem;
 }
 
 .ticketInfoFormContainer {
@@ -86,4 +84,14 @@
 #addEventButton:hover {
     background-color: #e17367;
     transition: 0.7s;
+}
+
+/* Edit Form */
+
+.formTeamLogo {
+    width: 3rem;
+}
+
+.teamNameForm {
+    padding-left: 0.5rem;
 }

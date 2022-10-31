@@ -50,7 +50,7 @@ export const AttendedEvent = ({ attendedEvent }) => {
             </section>
             <footer className="buttons">
                 <div className="detailsButton">
-                    <button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</button>
+                    <button onClick={() => { navigate(`/myEvents/${attendedEvent.id}`) }}>Details</button>
                     {/* <Button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</Button> */}
                 </div>
                 <div className="deleteButton">
@@ -58,5 +58,6 @@ export const AttendedEvent = ({ attendedEvent }) => {
                 </div>
             </footer>
         </section>
+
     )
 }

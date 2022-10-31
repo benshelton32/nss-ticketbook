@@ -1,4 +1,4 @@
-import './AddAttendedEventForm.css'
+import './AttendedEventForm.css'
 import { useEffect, useState } from "react"
 import { addAttendedEvent } from "../../modules/attendedEventsManager"
 import { useNavigate } from "react-router-dom"
@@ -78,33 +78,35 @@ export const AddAttendedEventForm = () => {
             <form className='eventForm'>
                 <h1>Add an Event</h1>
                 <div className='leagueAndDateFormContainer'>
-                    <fieldset>
-                        <div className="form-group">
-                            <label htmlFor="league">League: </label>
-                            <select
-                                value={attendedEvent.leagueId}
-                                required autoFocus
-                                className="form-control"
-                                id="eventFormControl"
-                                onChange={
-                                    (event) => {
-                                        const copy = { ...attendedEvent }
-                                        copy.leagueId = event.target.value
-                                        updateAttendedEvent(copy)
+                    <div className='leagueFormContainer'>
+                        <fieldset>
+                            <div className="form-group">
+                                <label htmlFor="league">League: </label>
+                                <select
+                                    value={attendedEvent.leagueId}
+                                    required autoFocus
+                                    className="form-control"
+                                    id="eventFormControl"
+                                    onChange={
+                                        (event) => {
+                                            const copy = { ...attendedEvent }
+                                            copy.leagueId = event.target.value
+                                            updateAttendedEvent(copy)
+                                        }
+                                    }>
+                                    <option value="">Select League...</option>
+                                    {
+                                        leagues.map(league => {
+                                            return <>
+                                                {/* <option key={`league--${league.id}`} value={league.id}><img className="formTeamLogo" src={process.env.PUBLIC_URL + `${league.logo}`} />{league.abbreviation}</option> */}
+                                                <option key={`league--${league.id}`} value={league.id}>{league.abbreviation}</option>
+                                            </>
+                                        })
                                     }
-                                }>
-                                <option value="">Select League...</option>
-                                {
-                                    leagues.map(league => {
-                                        return <>
-                                            {/* <option key={`league--${league.id}`} value={league.id}><img className="formTeamLogo" src={process.env.PUBLIC_URL + `${league.logo}`} />{league.abbreviation}</option> */}
-                                            <option key={`league--${league.id}`} value={league.id}>{league.abbreviation}</option>
-                                        </>
-                                    })
-                                }
-                            </select>
-                        </div>
-                    </fieldset>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
                     <div className='dateFormContainer'>
                         <fieldset>
                             <div className="form-group">
@@ -348,7 +350,7 @@ export const AddAttendedEventForm = () => {
                             </button>
 
                             <button
-                                onClick={() => navigate("/")}
+                                onClick={() => navigate("/myEvents")}
                                 className="btn btn-secondary"
                                 id="cancelButton">
                                 Cancel</button>

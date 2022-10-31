@@ -9,7 +9,7 @@ export const getAllAttendedEvents = () => {
 
 export const getUsersAttendedEvents = () => {
     return getToken().then((token) => {
-        fetch(_apiUrl + '/CurrentUsersEvents', {
+        return fetch(_apiUrl + '/CurrentUsersEvents', {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -37,7 +37,7 @@ export const getUsersAttendedEvents = () => {
 
 export const addAttendedEvent = (attendedEvent) => {
     return getToken().then((token) => {
-        fetch(_apiUrl, {
+        return fetch(_apiUrl, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,

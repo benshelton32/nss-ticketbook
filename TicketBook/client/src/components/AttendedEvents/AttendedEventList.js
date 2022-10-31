@@ -6,13 +6,13 @@ import "./AttendedEvent.css";
 export const AttendedEventsList = () => {
     const [initialAttendedEvents, setInitialAttendedEvents] = useState([])
 
-    // const getAttendedEvents = () => {
-    //     getUsersAttendedEvents().then(attendedEvents => setInitialAttendedEvents(attendedEvents))
-    // }
-
     const getAttendedEvents = () => {
-        getAllAttendedEvents().then(attendedEvents => setInitialAttendedEvents(attendedEvents))
+        getUsersAttendedEvents().then(setInitialAttendedEvents)
     }
+
+    // const getAttendedEvents = () => {
+    //     getAllAttendedEvents().then(attendedEvents => setInitialAttendedEvents(attendedEvents))
+    // }
 
     useEffect(() => {
         getAttendedEvents()
@@ -26,7 +26,7 @@ export const AttendedEventsList = () => {
 
             <div className="eventListContainer">
                 {
-                    initialAttendedEvents?.map((attendedEvent) => (
+                    initialAttendedEvents.map((attendedEvent) => (
                         <AttendedEvent attendedEvent={attendedEvent} key={attendedEvent.id} />
                     ))
                 }

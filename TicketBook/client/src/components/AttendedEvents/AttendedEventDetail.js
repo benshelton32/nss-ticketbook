@@ -19,8 +19,19 @@ export const AttendedEventDetail = () => {
     }, [])
 
     return (
-        <article className="row justify-content-center">
-            <h1>Game Details</h1>
+        <article className="articleContainer">
+            <header className="headerAndButtonsContainer">
+                <h1>Game Details</h1>
+                <div className="buttonsDetailsContainer">
+                    <div className="detailsEditButton">
+                        <button onClick={() => { navigate(`/myEvents/edit/${attendedEventId}`) }}>Edit</button>
+                        {/* <Button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</Button> */}
+                    </div>
+                    <div className="detailsDeleteButton">
+                        <button>Delete</button>
+                    </div>
+                </div>
+            </header>
             <section className="gameDetailsContainer">
                 <aside className="stadiumAndTicketInfoContainer">
                     <div className="stadiumAndDateContainer">
@@ -37,17 +48,21 @@ export const AttendedEventDetail = () => {
                 <div className="gameInfoAndNotesContainer">
                     <div className="gameInfoContainer">
                         <div className="detailsTeamContainer">
-                            <div className="detailsTeamLogoContainer"><img className="detailsTeamLogo" src={process.env.PUBLIC_URL + `${attendedEvent.homeTeam?.logo}`} /></div>
-                            <div className="deatilsTeamName">{attendedEvent.homeTeam?.name}</div>
+                            <div className="detailsTeamNameAndLogoContainer">
+                                <div className="detailsTeamLogoContainer"><img className="detailsTeamLogo" src={attendedEvent.homeTeam?.logo} /></div>
+                                <div className="deatilsTeamName">{attendedEvent.homeTeam?.name}</div>
+                            </div>
                             <div className="detailsTeamScore">{attendedEvent.homeTeamScore}</div>
                         </div>
                         <div className="finalContainer">
                             <div className="final">Final</div>
                         </div>
                         <div className="detailsTeamContainer">
-                            <div className="detailsTeamLogoContainer"><img className="detailsTeamLogo" src={process.env.PUBLIC_URL + `${attendedEvent.awayTeam?.logo}`} /></div>
-                            <div className="deatilsTeamName">{attendedEvent.awayTeam?.name}</div>
                             <div className="detailsTeamScore">{attendedEvent.awayTeamScore}</div>
+                            <div className="detailsTeamNameAndLogoContainer">
+                                <div className="detailsTeamLogoContainer"><img className="detailsTeamLogo" src={attendedEvent.awayTeam?.logo} /></div>
+                                <div className="deatilsTeamName">{attendedEvent.awayTeam?.name}</div>
+                            </div>
                         </div>
                     </div>
                     <div className="notesContainer">
