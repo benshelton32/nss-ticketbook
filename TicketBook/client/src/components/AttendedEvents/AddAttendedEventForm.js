@@ -70,7 +70,7 @@ export const AddAttendedEventForm = () => {
             notes: attendedEvent.notes
         }
 
-        return addAttendedEvent(attendedEventToSendToApi).then(navigate('./myEvents'))
+        return addAttendedEvent(attendedEventToSendToApi).then(navigate('/myEvents'))
     }
 
     return (
@@ -238,27 +238,6 @@ export const AddAttendedEventForm = () => {
                                     </div>
                                 </fieldset>
                             </div>}
-                        {/* <div className='dateFormContainer'>
-                            <fieldset>
-                                <div className="form-group">
-                                    <label htmlFor="date">Date:</label>
-                                    <input
-                                        required
-                                        type="date"
-                                        className="form-control"
-                                        id="eventFormControl"
-                                        placeholder="Enter Date.."
-                                        value={attendedEvent.date}
-                                        onChange={
-                                            (event) => {
-                                                const copy = { ...attendedEvent }
-                                                copy.date = event.target.value
-                                                updateAttendedEvent(copy)
-                                            }
-                                        } />
-                                </div>
-                            </fieldset>
-                        </div> */}
                         <h5 className='ticketInfoFormHeader'>Ticket Information</h5>
                         <div className='ticketInfoFormContainer'>
                             <fieldset>

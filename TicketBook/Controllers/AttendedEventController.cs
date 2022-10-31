@@ -57,10 +57,12 @@ namespace TicketBook.Controllers
         [HttpPost]
         public IActionResult Post(AttendedEvent attendedEvent)
         {
-            _attendedEventRepository.AddAttendedEvent(attendedEvent);
-
             var currentUser = GetCurrentUser();
             attendedEvent.UserId = currentUser.Id;
+            _attendedEventRepository.AddAttendedEvent(attendedEvent);
+
+            //var currentUser = GetCurrentUser();
+            //attendedEvent.UserId = currentUser.Id;
 
             return CreatedAtAction("Get", new { id = attendedEvent.Id }, attendedEvent);
         }
