@@ -102,7 +102,6 @@ export const AttendedEvent = ({ attendedEvent, getAttendedEvents }) => {
                 <footer className="buttons">
                     <div className="detailsButton">
                         <button className="btn btn-outline-dark" id="eventListDetailsButton" onClick={() => { navigate(`/myEvents/${attendedEvent.id}`) }}>Details</button>
-                        {/* <Button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</Button> */}
                     </div>
                     <div className="deleteButton">
                         <button className="btn btn-outline-dark" id="eventListDeleteButton" onClick={() => { toggleDeleteModal() }}>Delete</button>
@@ -110,7 +109,7 @@ export const AttendedEvent = ({ attendedEvent, getAttendedEvents }) => {
                 </footer>
             </section>
 
-            <Modal className="deleteModal" isOpen={showDeleteModal} toggle={() => setShowDeleteModal(!showDeleteModal)}>
+            <Modal animation='false' className="deleteModal" isOpen={showDeleteModal} toggle={() => setShowDeleteModal(!showDeleteModal)}>
                 <ModalHeader toggle={toggleDeleteModal} charcode="X">Delete Event</ModalHeader>
                 <ModalBody>
                     Are you sure you want to delete this {attendedEvent.homeTeam?.name} vs. {attendedEvent.awayTeam?.name} game?
@@ -120,7 +119,7 @@ export const AttendedEvent = ({ attendedEvent, getAttendedEvents }) => {
                     <button className="btn btn-danger" id="eventModalDeleteButton" onClick={() => {
                         deleteAttendedEvent(attendedEvent.id).then(() => { toggleDeleteModal(); }).then(getAttendedEvents())
                     }}>Delete</button>{' '}
-                    <button className="btn btn-secondary" onClick={toggleDeleteModal}>Cancel</button>
+                    <button className="btn btn-secondary" id="eventModalCancelButton" onClick={toggleDeleteModal}>Cancel</button>
                 </ModalFooter>
             </Modal>
         </>

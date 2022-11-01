@@ -32,8 +32,7 @@ export const AttendedEventDetail = () => {
                         <h1>Game Details</h1>
                         <div className="buttonsDetailsContainer">
                             <div className="detailsEditButton">
-                                <button className="btn btn-secondary" id="detailsEditButton" onClick={() => { navigate(`/myEvents/edit/${attendedEventId}`) }}>Edit</button>
-                                {/* <Button onClick={() => navigate(`/myEvents/${attendedEvent.id}`)}>Details</Button> */}
+                                <button className="btn btn-outline-dark" id="detailsEditButton" onClick={() => { navigate(`/myEvents/edit/${attendedEventId}`) }}>Edit</button>
                             </div>
                             <div className="detailsDeleteButton">
                                 <button onClick={() => { toggleDeleteModal() }}
@@ -154,10 +153,10 @@ export const AttendedEventDetail = () => {
                     This action cannot be undone.
                 </ModalBody>
                 <ModalFooter>
-                    <button className="btn btn-danger" onClick={() => {
+                    <button className="btn btn-danger" id="detailsModalDeleteButton" onClick={() => {
                         deleteAttendedEvent(attendedEventId).then(() => { toggleDeleteModal(); }).then(navigate('/myEvents'))
                     }}>Delete</button>{' '}
-                    <button className="btn btn-secondary" onClick={toggleDeleteModal}>Cancel</button>
+                    <button className="btn btn-secondary" id="detailsModalCancelButton" onClick={toggleDeleteModal}>Cancel</button>
                 </ModalFooter>
             </Modal>
         </>

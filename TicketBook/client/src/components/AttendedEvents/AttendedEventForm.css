@@ -70,9 +70,9 @@
     width: 7rem;
 }
 
-#cancelButton:hover {
+/* #cancelButton:hover {
     transition: 0.7s;
-}
+} */
 
 #addEventButton {
     margin-left: 0.5rem;
@@ -83,7 +83,7 @@
 
 #addEventButton:hover {
     background-color: #e17367;
-    transition: 0.7s;
+    /* transition: 0.7s; */
 }
 
 /* Edit Form */

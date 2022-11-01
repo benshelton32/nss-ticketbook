@@ -185,7 +185,7 @@
 #detailsDeleteButton {
     width: 7rem;
     background-color: #FA8072;
-    border-color: #FA8072;
+    border-color: black;
 }
 
 #detailsDeleteButton:hover {
@@ -195,4 +195,28 @@
 
 #detailsEditButton {
     width: 7rem;
+}
+
+#detailsEditButton:hover {
+    background-color: #003366;
+    /* transition: 0.7s; */
+}
+
+#detailsModalDeleteButton {
+    background-color: #FA8072;
+    border-color: black;
+}
+
+#detailsModalDeleteButton:hover {
+    background-color: #e17367;
+    /* transition: 0.7s; */
+}
+
+#detailsModalCancelButton {
+    background-color: rgba(122, 122, 122, 0.7);
+    border-color: black;
+}
+
+#detailsModalCancelButton:hover {
+    background-color: rgba(122, 122, 122, 0.9);
 }

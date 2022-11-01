@@ -63,8 +63,8 @@
 }
 
 #eventListDeleteButton:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    /* background-color: #003366; */
+    background-color: #FA8072
+        /* background-color: #003366; */
 }
 
 
@@ -157,12 +157,21 @@
 
 #eventModalDeleteButton {
     background-color: #FA8072;
-    border-color: #FA8072;
+    border-color: black;
 }
 
 #eventModalDeleteButton:hover {
     background-color: #e17367;
-    transition: 0.7s;
+    /* transition: 0.7s; */
+}
+
+#eventModalCancelButton {
+    background-color: rgba(122, 122, 122, 0.7);
+    border-color: black;
+}
+
+#eventModalCancelButton:hover {
+    background-color: rgba(122, 122, 122, 0.9);
 }
 
 /* .deleteModal {
@@ -199,5 +208,5 @@
 
 #noEventAddButton:hover {
     background-color: #e17367;
-    transition: 0.7s;
+    /* transition: 0.7s; */
 }
