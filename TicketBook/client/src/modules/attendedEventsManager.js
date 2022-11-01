@@ -72,3 +72,14 @@ export const updateAttendedEvent = (attendedEvent) => {
         body: JSON.stringify(attendedEvent),
     });
 };
+
+export const deleteAttendedEvent = (eventId) => {
+    return getToken().then((token) => {
+        return fetch(_apiUrl + `/${eventId}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+    })
+}

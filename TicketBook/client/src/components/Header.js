@@ -21,7 +21,7 @@ export default function Header({ isLoggedIn }) {
             <Navbar className="navbar navbar-dark" expand="md" style={{ backgroundColor: '#003366' }}>
                 {/* <Navbar expand="md"> */}
                 <NavbarBrand tag={RRNavLink} to="/">
-                    <img className="headerLogo" src={process.env.PUBLIC_URL + "/ticketbook-logo.png"} />
+                    <img className="headerLogo" src={"/ticketbook-logo.png"} />
                     {/* Ticketbook */}
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
@@ -39,22 +39,30 @@ export default function Header({ isLoggedIn }) {
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
                                 </NavItem>
-                                {/* <NavItem>
-                  <NavLink tag={RRNavLink} to="/post">POSTS</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/tag">TAGS</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/category">CATEGORIES</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/UserProfile">USERPROFILE</NavLink>
-                </NavItem> */}
                                 <NavItem>
-                                    <NavLink onClick={logout} to="/login">LOGOUT</NavLink>
+                                    <NavLink tag={RRNavLink} onClick={logout} to="/login">LOGOUT</NavLink>
                                 </NavItem>
                             </>
+                            // <>
+                            //     <div className="navBarLinkContainer">
+                            //         <div className="nonLogoutLinksContainer">
+                            //             <NavItem>
+                            //                 <NavLink tag={RRNavLink} to="/">HOME</NavLink>
+                            //             </NavItem>
+                            //             <NavItem>
+                            //                 <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
+                            //             </NavItem>
+                            //             <NavItem>
+                            //                 <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
+                            //             </NavItem>
+                            //         </div>
+                            //         <div className="logoutConatiner">
+                            //             <NavItem>
+                            //                 <NavLink onClick={logout} to="/login">LOGOUT</NavLink>
+                            //             </NavItem>
+                            //         </div>
+                            //     </div>
+                            // </>
                         )}
                         {!isLoggedIn && (
                             <>

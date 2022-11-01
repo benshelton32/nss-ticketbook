@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getUsersAttendedEvents, getAllAttendedEvents } from "../../modules/attendedEventsManager";
 import { AttendedEvent } from "./AttendedEvent";
 import "./AttendedEvent.css";
 
 export const AttendedEventsList = () => {
+    const navigate = useNavigate()
     const [initialAttendedEvents, setInitialAttendedEvents] = useState([])
 
     const getAttendedEvents = () => {
@@ -21,16 +23,23 @@ export const AttendedEventsList = () => {
     )
 
     return (
-        <section>
-            <h1 className="eventListHeader">Attended Events</h1>
+        <>
+            {initialAttendedEvents.length > 0 ?
+                <section>
+                    <h1 className="eventListHeader">Attended Events</h1>
 
-            <div className="eventListContainer">
-                {
-                    initialAttendedEvents.map((attendedEvent) => (
-                        <AttendedEvent attendedEvent={attendedEvent} key={attendedEvent.id} />
-                    ))
-                }
-            </div>
-        </section>
+                    <div className="eventListContainer">
+                        {
+                            initialAttendedEvents.map((attendedEvent) => (
+                                <AttendedEvent attendedEvent={attendedEvent} getAttendedEvents={getAttendedEvents} key={attendedEvent.id} />
+                            ))
+                        }
+                    </div>
+                </section>
+                : <div className="noEventContainer">
+                    <div className="noEventMessage">Please, click on Add Event to start adding your events!</div>
+                    <div><button id="noEventAddButton" className="btn btn-danger" onClick={() => { navigate(`/myEvents/create`) }}>Add Event</button></div>
+                </div>}
+        </>
     )
 }

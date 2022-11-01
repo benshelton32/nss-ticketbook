@@ -6,9 +6,10 @@
     justify-content: center;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 8px 0 rgba(0, 0, 0, 0.19);
     /* background-color: rgba(245, 245, 245, 0.8); */
+    /* width: 250px; */
 }
 
 .dateAndLocationContainer {
@@ -16,10 +17,12 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #FA8072;
     /* margin: 1rem; */
     padding: 1rem;
     text-align: center;
+    background-color: #003366;
+    color: white;
 }
 
 .teamAndScoreContainer {
@@ -29,6 +32,8 @@
     justify-content: space-between;
     /* margin: 1rem; */
     padding: 1rem;
+    /* width: 229px; */
+    /* height: 190px; */
 }
 
 .seatLocationContainer {
@@ -38,7 +43,8 @@
     /* margin: 1rem; */
     padding: 1rem;
     justify-content: space-between;
-    border-top: 1px solid black;
+    border-top: 1px dotted black;
+    background-color: rgba(122, 122, 122, 0.3);
 }
 
 .buttons {
@@ -48,15 +54,19 @@
     justify-content: space-around;
     /* margin: 1rem; */
     padding: 1rem;
+    background-color: rgba(122, 122, 122, 0.3);
 }
 
-.eventListContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 1rem;
+#eventListDetailsButton:hover {
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background-color: #003366;
 }
+
+#eventListDeleteButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: #003366; */
+}
+
 
 .seatInfoContainer {
     /* border: 1px black solid; */
@@ -80,11 +90,26 @@
 
 .teamScore {
     border: 1px black solid;
-    padding: 1.25rem;
+    padding: 0.25rem;
+    font-size: larger;
+    height: 40.8px;
+}
+
+.winningTeamScore {
+    border: 2px black solid;
+    padding: 0.25rem;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.winningTeamAbbreviation {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
 }
 
 .finalAndOvertimeContainer {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -95,7 +120,8 @@
 }
 
 .teamLogo {
-    width: 3.5rem
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .teamLogoContainer {
@@ -109,4 +135,69 @@
 .teamAbbreviation {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+}
+
+.homeWinFinal {
+    padding-top: 3.25rem;
+    padding-right: 1rem;
+}
+
+.awayWinFinal {
+    padding-top: 3.25rem;
+    padding-left: 1rem;
+}
+
+.tieFinal {
+    padding: 3.25rem 1.12rem 0rem 1.12rem;
+}
+
+.finalArrow {
+    width: 1.25rem;
+}
+
+#eventModalDeleteButton {
+    background-color: #FA8072;
+    border-color: #FA8072;
+}
+
+#eventModalDeleteButton:hover {
+    background-color: #e17367;
+    transition: 0.7s;
+}
+
+/* .deleteModal {
+    modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 1300 }}
+    transition: 700;
+} */
+
+/* AttendedEventList */
+
+.eventListContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.noEventContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.noEventMessage {
+    font-size: larger;
+    padding-bottom: 0.5rem;
+}
+
+#noEventAddButton {
+    width: 7rem;
+    background-color: #FA8072;
+    border-color: #FA8072;
+}
+
+#noEventAddButton:hover {
+    background-color: #e17367;
+    transition: 0.7s;
 }

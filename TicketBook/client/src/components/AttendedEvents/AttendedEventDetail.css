@@ -1,7 +1,13 @@
 .articleContainer {
     margin-left: 3rem;
     margin-right: 3rem;
+    display: flex;
+    justify-content: center;
 }
+
+/* .detailViewContainer {
+    width: 900px;
+} */
 
 .gameDetailsContainer {
     display: flex;
@@ -9,7 +15,7 @@
 }
 
 .gameInfoAndNotesContainer {
-    padding: 0rem 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .detailsTeamLogo {
@@ -35,8 +41,10 @@
 .gameInfoContainer {
     display: flex;
     flex-direction: row;
-    border-top: black solid 1px;
+    justify-content: space-between;
+    /* border-top: black solid 1px; */
     border-bottom: black solid 1px;
+    /* background-color: rgba(245, 245, 245, 0.9); */
 }
 
 .headerAndButtonsContainer {
@@ -45,6 +53,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 0rem 1rem;
+    border-bottom: 1px black solid;
 }
 
 .buttonsDetailsContainer {
@@ -53,17 +62,22 @@
     flex-wrap: nowrap;
 }
 
-/* .stadiumAndTicketInfoContainer {
+.stadiumAndTicketInfoContainer {
     padding: 1rem;
     border: black solid 1px;
     border-radius: 15px;
-} */
+    background-color: rgba(245, 245, 245, 0.9);
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
-.stadiumAndTicketInfoContainer {
+/* .stadiumAndTicketInfoContainer {
     padding: 1rem;
     border-right: black solid 1px;
-    /* border-radius: 15px; */
-}
+} */
 
 .detailsTeamScore {
     padding: 1.5rem 2rem;
@@ -73,12 +87,70 @@
     justify-content: center;
 }
 
+.detailsHomeOrAwayContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.detailsHomeOrAwayLabel {
+    text-align: center;
+    font-size: medium;
+    border-bottom: 1px solid black;
+    padding: 0.25rem 0.5rem 0rem 0.5rem;
+}
+
 .deatilsTeamName {
     padding: 0rem 1rem 1rem 1rem;
     font-size: 20px;
+    text-align: center;
+}
+
+.detailsWinningTeamScore {
+    padding: 1.5rem 2rem;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.deatilsWinningTeamName {
+    padding: 0rem 1rem 1rem 1rem;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.deatilsFinalArrow {
+    width: 2rem;
 }
 
 .finalContainer {
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.awayWinFinalContainer {
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homeWinFinalContainer {
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tieFinalContainer {
     padding: 2rem;
     font-size: 20px;
     display: flex;
@@ -97,7 +169,7 @@
 }
 
 .detailsEditButton {
-    margin: 0rem 1rem;
+    margin: 0rem 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,4 +180,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#detailsDeleteButton {
+    width: 7rem;
+    background-color: #FA8072;
+    border-color: #FA8072;
+}
+
+#detailsDeleteButton:hover {
+    background-color: #e17367;
+    transition: 0.7s;
+}
+
+#detailsEditButton {
+    width: 7rem;
 }
