@@ -1,0 +1,36 @@
+.loginAndRegisterFormContainer {
+    display: flex;
+    /* justify-content: center; */
+}
+
+.loginAndRegisterFormContainer {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.loginAndRegisterInputs {
+    width: 30rem;
+}
+
+.loginAndRegisterButton {
+    /* margin-left: 0.5rem;
+    width: 7rem; */
+    background-color: #FA8072;
+    border-color: black;
+    margin-bottom: 0;
+}
+
+.loginAndRegisterButton:hover {
+    background-color: #e17367;
+    /* transition: 0.7s; */
+}
+
+.loginAndRegisterButtonRow {
+    text-align: right;
+}
+
+.hyperlink {
+    /* color: #003366; */
+    /* color: #FA8072; */
+    color: #1a4775;
+}

@@ -86,7 +86,6 @@ export const EditAttendedEventForm = () => {
                                     id="eventFormControl"
                                     placeholder="Enter Date.."
                                     defaultValue={initialAttendedEvent?.date ? new Date(initialAttendedEvent.date).toISOString().split('T')[0] : null}
-                                    // value={editedAttendedEvent.date}
                                     onChange={
                                         (event) => {
                                             const copy = { ...editedAttendedEvent }
@@ -120,7 +119,6 @@ export const EditAttendedEventForm = () => {
                                     id="eventFormControl"
                                     placeholder="Enter Home Score.."
                                     defaultValue={initialAttendedEvent.homeTeamScore}
-                                    // value={editedAttendedEvent.homeTeamScore}
                                     onChange={
                                         (event) => {
                                             const copy = { ...editedAttendedEvent }
@@ -151,7 +149,6 @@ export const EditAttendedEventForm = () => {
                                     id="eventFormControl"
                                     placeholder="Enter Away Score.."
                                     defaultValue={initialAttendedEvent.awayTeamScore}
-                                    // value={editedAttendedEvent.awayTeamScore}
                                     onChange={
                                         (event) => {
                                             const copy = { ...editedAttendedEvent }
@@ -182,7 +179,6 @@ export const EditAttendedEventForm = () => {
                                 id="eventFormControl--ticketInfo"
                                 placeholder="Enter Section.."
                                 defaultValue={initialAttendedEvent.section}
-                                // value={editedAttendedEvent.section}
                                 onChange={
                                     (event) => {
                                         const copy = { ...editedAttendedEvent }
@@ -202,7 +198,6 @@ export const EditAttendedEventForm = () => {
                                 id="eventFormControl--ticketInfo"
                                 placeholder="Enter Row.."
                                 defaultValue={initialAttendedEvent.row}
-                                // value={editedAttendedEvent.row}
                                 onChange={
                                     (event) => {
                                         const copy = { ...editedAttendedEvent }
@@ -222,7 +217,6 @@ export const EditAttendedEventForm = () => {
                                 id="eventFormControl--ticketInfo"
                                 placeholder="Enter Seat.."
                                 defaultValue={initialAttendedEvent.seat}
-                                // value={editedAttendedEvent.seat}
                                 onChange={
                                     (event) => {
                                         const copy = { ...editedAttendedEvent }
@@ -245,7 +239,6 @@ export const EditAttendedEventForm = () => {
                                 placeholder="Enter Notes.."
                                 rows="5"
                                 defaultValue={initialAttendedEvent.notes}
-                                // value={editedAttendedEvent.notes}
                                 onChange={
                                     (event) => {
                                         const copy = { ...editedAttendedEvent }
@@ -267,7 +260,7 @@ export const EditAttendedEventForm = () => {
                     <button
                         onClick={() => { navigate(`/myEvents/${attendedEventId}`) }}
                         className="btn btn-secondary"
-                        id="cancelButton">
+                        id="editFormCancelButton">
                         Cancel</button>
                 </div>
             </form>

@@ -7,3 +7,20 @@
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+/* .navBarLinkContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nonLogoutLinksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mr-auto {
+    width: 100%;
+} */

@@ -11,12 +11,12 @@ export const AddAttendedEventForm = () => {
     const navigate = useNavigate()
 
     const [attendedEvent, updateAttendedEvent] = useState({
-        leagueId: '',
-        homeTeamId: '',
-        awayTeamId: '',
+        leagueId: 0,
+        homeTeamId: 0,
+        awayTeamId: 0,
         homeTeamScore: '',
         awayTeamScore: '',
-        stadiumId: '',
+        stadiumId: 0,
         date: '',
         section: '',
         row: '',
@@ -46,12 +46,6 @@ export const AddAttendedEventForm = () => {
         }
     }, [attendedEvent.homeTeamId])
 
-    // useEffect(() => {
-    //     const copy = { ...attendedEvent }
-    //     copy.stadiumId = stadium.id
-    //     updateAttendedEvent(copy)
-    // }, [stadium])
-
     const handleAddEventButtonClick = (event) => {
         event.preventDefault()
 
@@ -70,7 +64,7 @@ export const AddAttendedEventForm = () => {
             notes: attendedEvent.notes
         }
 
-        return addAttendedEvent(attendedEventToSendToApi).then(navigate('/myEvents'))
+        return addAttendedEvent(attendedEventToSendToApi).then(() => { navigate('/myEvents') })
     }
 
     return (
@@ -97,10 +91,7 @@ export const AddAttendedEventForm = () => {
                                     <option value="">Select League...</option>
                                     {
                                         leagues.map(league => {
-                                            return <>
-                                                {/* <option key={`league--${league.id}`} value={league.id}><img className="formTeamLogo" src={process.env.PUBLIC_URL + `${league.logo}`} />{league.abbreviation}</option> */}
-                                                <option key={`league--${league.id}`} value={league.id}>{league.abbreviation}</option>
-                                            </>
+                                            return <option key={`league--${league.id}`} value={league.id}>{league.abbreviation}</option>
                                         })
                                     }
                                 </select>
@@ -152,10 +143,7 @@ export const AddAttendedEventForm = () => {
                                             <option value="">Select Home Team...</option>
                                             {
                                                 teamsFilteredByLeague.map(team => {
-                                                    return <>
-                                                        {/* <option key={`homeTeam--${team.id}`} value={team.id}><img className="formTeamLogo" src={process.env.PUBLIC_URL + `${team.logo}`} />{team.name}</option> */}
-                                                        <option key={`homeTeam--${team.id}`} value={team.id}>{team.name}</option>
-                                                    </>
+                                                    return <option key={`homeTeam--${team.id}`} value={team.id}>{team.name}</option>
                                                 })
                                             }
                                         </select>
@@ -200,10 +188,7 @@ export const AddAttendedEventForm = () => {
                                             <option value="">Select Away Team...</option>
                                             {
                                                 teamsFilteredByLeague.map(team => {
-                                                    return <>
-                                                        {/* <option key={`awayTeam--${team.id}`} value={team.id}><img className="formTeamLogo" src={process.env.PUBLIC_URL + `${team.logo}`} />{team.name}</option> */}
-                                                        <option key={`awayTeam--${team.id}`} value={team.id}>{team.name}</option>
-                                                    </>
+                                                    return <option key={`awayTeam--${team.id}`} value={team.id}>{team.name}</option>
                                                 })
                                             }
                                         </select>
@@ -329,9 +314,9 @@ export const AddAttendedEventForm = () => {
                             </button>
 
                             <button
-                                onClick={() => navigate("/myEvents")}
+                                onClick={() => { navigate("/myEvents") }}
                                 className="btn btn-secondary"
-                                id="cancelButton">
+                                id="addFormCancelButton">
                                 Cancel</button>
                         </div>
                     </>

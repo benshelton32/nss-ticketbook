@@ -19,10 +19,8 @@ export default function Header({ isLoggedIn }) {
     return (
         <div className="headerConatiner">
             <Navbar className="navbar navbar-dark" expand="md" style={{ backgroundColor: '#003366' }}>
-                {/* <Navbar expand="md"> */}
-                <NavbarBrand tag={RRNavLink} to="/">
-                    <img className="headerLogo" src={process.env.PUBLIC_URL + "/ticketbook-logo.png"} />
-                    {/* Ticketbook */}
+                <NavbarBrand tag={RRNavLink} to="/myEvents">
+                    <img className="headerLogo" src={"/ticketbook-logo.png"} alt={'ticketbook logo'} />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -31,28 +29,13 @@ export default function Header({ isLoggedIn }) {
                         {isLoggedIn && (
                             <>
                                 <NavItem>
-                                    <NavLink tag={RRNavLink} to="/">HOME</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
+                                    <NavLink tag={RRNavLink} to="/myEvents">My Events</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
                                 </NavItem>
-                                {/* <NavItem>
-                  <NavLink tag={RRNavLink} to="/post">POSTS</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/tag">TAGS</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/category">CATEGORIES</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/UserProfile">USERPROFILE</NavLink>
-                </NavItem> */}
                                 <NavItem>
-                                    <NavLink onClick={logout} to="/login">LOGOUT</NavLink>
+                                    <NavLink tag={RRNavLink} onClick={logout} to="/login">Logout</NavLink>
                                 </NavItem>
                             </>
                         )}
@@ -60,12 +43,12 @@ export default function Header({ isLoggedIn }) {
                             <>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/login">
-                                        LOGIN
+                                        Login
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/register">
-                                        REGISTER
+                                        Register
                                     </NavLink>
                                 </NavItem>
                             </>
