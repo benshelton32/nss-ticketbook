@@ -1,8 +1,7 @@
-import { Navigate } from "react-router-dom"
-import { Button, Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap"
-import { useNavigate, useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { deleteAttendedEvent, getAttendedEventById } from "../../modules/attendedEventsManager"
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { deleteAttendedEvent } from "../../modules/attendedEventsManager"
 
 export const AttendedEvent = ({ attendedEvent, getAttendedEvents }) => {
 
@@ -117,7 +116,7 @@ export const AttendedEvent = ({ attendedEvent, getAttendedEvents }) => {
                 </ModalBody>
                 <ModalFooter>
                     <button className="btn btn-danger" id="eventModalDeleteButton" onClick={() => {
-                        deleteAttendedEvent(attendedEvent.id).then(() => { toggleDeleteModal(); }).then(getAttendedEvents())
+                        deleteAttendedEvent(attendedEvent.id).then(() => { toggleDeleteModal(); }).then(() => { getAttendedEvents() })
                     }}>Delete</button>{' '}
                     <button className="btn btn-secondary" id="eventModalCancelButton" onClick={toggleDeleteModal}>Cancel</button>
                 </ModalFooter>

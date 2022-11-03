@@ -19,10 +19,8 @@ export default function Header({ isLoggedIn }) {
     return (
         <div className="headerConatiner">
             <Navbar className="navbar navbar-dark" expand="md" style={{ backgroundColor: '#003366' }}>
-                {/* <Navbar expand="md"> */}
-                <NavbarBrand tag={RRNavLink} to="/">
-                    <img className="headerLogo" src={"/ticketbook-logo.png"} />
-                    {/* Ticketbook */}
+                <NavbarBrand tag={RRNavLink} to="/myEvents">
+                    <img className="headerLogo" src={"/ticketbook-logo.png"} alt={'ticketbook logo'} />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -31,49 +29,26 @@ export default function Header({ isLoggedIn }) {
                         {isLoggedIn && (
                             <>
                                 <NavItem>
-                                    <NavLink tag={RRNavLink} to="/">HOME</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
+                                    <NavLink tag={RRNavLink} to="/myEvents">My Events</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={RRNavLink} onClick={logout} to="/login">LOGOUT</NavLink>
+                                    <NavLink tag={RRNavLink} onClick={logout} to="/login">Logout</NavLink>
                                 </NavItem>
                             </>
-                            // <>
-                            //     <div className="navBarLinkContainer">
-                            //         <div className="nonLogoutLinksContainer">
-                            //             <NavItem>
-                            //                 <NavLink tag={RRNavLink} to="/">HOME</NavLink>
-                            //             </NavItem>
-                            //             <NavItem>
-                            //                 <NavLink tag={RRNavLink} to="/myEvents">MyEvents</NavLink>
-                            //             </NavItem>
-                            //             <NavItem>
-                            //                 <NavLink tag={RRNavLink} to="/myEvents/create">Add Event</NavLink>
-                            //             </NavItem>
-                            //         </div>
-                            //         <div className="logoutConatiner">
-                            //             <NavItem>
-                            //                 <NavLink onClick={logout} to="/login">LOGOUT</NavLink>
-                            //             </NavItem>
-                            //         </div>
-                            //     </div>
-                            // </>
                         )}
                         {!isLoggedIn && (
                             <>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/login">
-                                        LOGIN
+                                        Login
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={RRNavLink} to="/register">
-                                        REGISTER
+                                        Register
                                     </NavLink>
                                 </NavItem>
                             </>

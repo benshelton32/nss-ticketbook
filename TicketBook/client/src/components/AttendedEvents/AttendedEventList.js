@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getUsersAttendedEvents, getAllAttendedEvents } from "../../modules/attendedEventsManager";
+import { getUsersAttendedEvents } from "../../modules/attendedEventsManager";
 import { AttendedEvent } from "./AttendedEvent";
 import "./AttendedEvent.css";
 
 export const AttendedEventsList = () => {
     const navigate = useNavigate()
-    const [initialAttendedEvents, setInitialAttendedEvents] = useState([])
+    const [initialAttendedEvents, setInitialAttendedEvents] = useState(null)
 
     const getAttendedEvents = () => {
         getUsersAttendedEvents().then(setInitialAttendedEvents)
     }
-
-    // const getAttendedEvents = () => {
-    //     getAllAttendedEvents().then(attendedEvents => setInitialAttendedEvents(attendedEvents))
-    // }
 
     useEffect(() => {
         getAttendedEvents()
@@ -22,10 +18,10 @@ export const AttendedEventsList = () => {
         []
     )
 
-    return (
-        <>
-            {initialAttendedEvents.length > 0 ?
-                <section>
+    const renderEventsOrMessage = () => {
+        if (initialAttendedEvents) {
+            if (initialAttendedEvents.length > 0) {
+                return <section>
                     <h1 className="eventListHeader">Attended Events</h1>
 
                     <div className="eventListContainer">
@@ -36,10 +32,14 @@ export const AttendedEventsList = () => {
                         }
                     </div>
                 </section>
-                : <div className="noEventContainer">
+            } else {
+                return <div className="noEventContainer">
                     <div className="noEventMessage">Please, click on Add Event to start adding your events!</div>
                     <div><button id="noEventAddButton" className="btn btn-danger" onClick={() => { navigate(`/myEvents/create`) }}>Add Event</button></div>
-                </div>}
-        </>
-    )
+                </div>
+            }
+        }
+    }
+
+    return renderEventsOrMessage()
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { Button, Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap"
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap"
 import { deleteAttendedEvent, getAttendedEventById } from "../../modules/attendedEventsManager"
 import "./AttendedEventDetail.css";
 
@@ -48,7 +48,6 @@ export const AttendedEventDetail = () => {
                                 <div className="stadiumName"> Stadium: {attendedEvent.stadium?.name}</div>
                                 <div className="stadiumLocation">Location: {attendedEvent.stadium?.location}</div>
                             </div>
-                            {/* <div><h5>Seat Information</h5></div> */}
                             <div className="ticketInfoContainer">
                                 <div><h5>Seat Information</h5></div>
                                 <div>Section: {attendedEvent.section}</div>

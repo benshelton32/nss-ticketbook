@@ -25,16 +25,6 @@ export const getUsersAttendedEvents = () => {
     })
 };
 
-// export const addAttendedEvent = (attendedEvent) => {
-//     return fetch(_apiUrl, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(attendedEvent),
-//     });
-// };
-
 export const addAttendedEvent = (attendedEvent) => {
     return getToken().then((token) => {
         return fetch(_apiUrl, {

@@ -65,20 +65,22 @@
 
 }
 
-#cancelButton {
+#addFormCancelButton {
     margin-left: 0.5rem;
     width: 7rem;
+    background-color: rgba(122, 122, 122, 0.7);
+    border-color: black;
 }
 
-/* #cancelButton:hover {
-    transition: 0.7s;
-} */
+#addFormCancelButton:hover {
+    background-color: rgba(122, 122, 122, 0.9);
+}
 
 #addEventButton {
     margin-left: 0.5rem;
     width: 7rem;
     background-color: #FA8072;
-    border-color: #FA8072;
+    border-color: black;
 }
 
 #addEventButton:hover {
@@ -94,4 +96,15 @@
 
 .teamNameForm {
     padding-left: 0.5rem;
+}
+
+#editFormCancelButton {
+    margin-left: 0.5rem;
+    width: 7rem;
+    background-color: rgba(122, 122, 122, 0.7);
+    border-color: black;
+}
+
+#editFormCancelButton:hover {
+    background-color: rgba(122, 122, 122, 0.9);
 }

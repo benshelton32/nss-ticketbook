@@ -14,8 +14,8 @@ export const AddAttendedEventForm = () => {
         leagueId: 0,
         homeTeamId: 0,
         awayTeamId: 0,
-        homeTeamScore: 0,
-        awayTeamScore: 0,
+        homeTeamScore: '',
+        awayTeamScore: '',
         stadiumId: 0,
         date: '',
         section: '',
@@ -46,12 +46,6 @@ export const AddAttendedEventForm = () => {
         }
     }, [attendedEvent.homeTeamId])
 
-    // useEffect(() => {
-    //     const copy = { ...attendedEvent }
-    //     copy.stadiumId = stadium.id
-    //     updateAttendedEvent(copy)
-    // }, [stadium])
-
     const handleAddEventButtonClick = (event) => {
         event.preventDefault()
 
@@ -70,7 +64,7 @@ export const AddAttendedEventForm = () => {
             notes: attendedEvent.notes
         }
 
-        return addAttendedEvent(attendedEventToSendToApi).then(navigate('/myEvents'))
+        return addAttendedEvent(attendedEventToSendToApi).then(() => { navigate('/myEvents') })
     }
 
     return (
@@ -320,9 +314,9 @@ export const AddAttendedEventForm = () => {
                             </button>
 
                             <button
-                                onClick={() => navigate("/myEvents")}
+                                onClick={() => { navigate("/myEvents") }}
                                 className="btn btn-secondary"
-                                id="cancelButton">
+                                id="addFormCancelButton">
                                 Cancel</button>
                         </div>
                     </>
