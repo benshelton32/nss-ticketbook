@@ -204,7 +204,7 @@
 #noEventAddButton {
     width: 7rem;
     background-color: #FA8072;
-    border-color: #FA8072;
+    border-color: black;
 }
 
 #noEventAddButton:hover {
