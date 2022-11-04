@@ -153,7 +153,7 @@ export const AttendedEventDetail = () => {
                 </ModalBody>
                 <ModalFooter>
                     <button className="btn btn-danger" id="detailsModalDeleteButton" onClick={() => {
-                        deleteAttendedEvent(attendedEventId).then(() => { toggleDeleteModal(); }).then(navigate('/myEvents'))
+                        deleteAttendedEvent(attendedEventId).then(() => { toggleDeleteModal(); }).then(() => {navigate('/myEvents')})
                     }}>Delete</button>{' '}
                     <button className="btn btn-secondary" id="detailsModalCancelButton" onClick={toggleDeleteModal}>Cancel</button>
                 </ModalFooter>

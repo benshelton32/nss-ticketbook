@@ -17,7 +17,6 @@
     width: 7rem; */
     background-color: #FA8072;
     border-color: black;
-    margin-bottom: 0;
 }
 
 .loginAndRegisterButton:hover {
@@ -33,4 +32,22 @@
     /* color: #003366; */
     /* color: #FA8072; */
     color: #1a4775;
+}
+
+#loginPageButton {
+    background-color: #FA8072;
+    border-color: black;
+}
+
+#loginPageButton:hover {
+    background-color: #e17367;
+}
+
+#registerPageButton {
+    background-color: #FA8072;
+    border-color: black;
+}
+
+#registerPageButton:hover {
+    background-color: #e17367;
 }
