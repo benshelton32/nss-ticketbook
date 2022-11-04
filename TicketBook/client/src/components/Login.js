@@ -25,6 +25,7 @@ export default function Login() {
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="email"
                             type="text"
@@ -35,6 +36,7 @@ export default function Login() {
                     <FormGroup>
                         <Label for="password">Password</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="password"
                             type="password"
@@ -43,7 +45,7 @@ export default function Login() {
                     </FormGroup>
                     <div className="loginAndRegisterButtonRow">
                         <FormGroup>
-                            <Button className="loginAndRegisterButton">Login</Button>
+                            <Button className="loginAndRegisterButton" id="loginPageButton">Login</Button>
                         </FormGroup>
                         <em>
                             Not registered? <Link className="hyperlink" to="/register">Register</Link>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { register } from "../modules/authManager";
+import "./LoginAndRegister.css";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function Register() {
                     <FormGroup>
                         <Label htmlFor="firstName">First Name</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="firstName"
                             type="text"
@@ -43,6 +45,7 @@ export default function Register() {
                     <FormGroup>
                         <Label htmlFor="lastName">Last Name</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="lastName"
                             type="text"
@@ -52,6 +55,7 @@ export default function Register() {
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="email"
                             type="text"
@@ -61,6 +65,7 @@ export default function Register() {
                     <FormGroup>
                         <Label for="password">Password</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="password"
                             type="password"
@@ -70,6 +75,7 @@ export default function Register() {
                     <FormGroup>
                         <Label for="confirmPassword">Confirm Password</Label>
                         <Input
+                            style={{ width: '30rem' }}
                             className="loginAndRegisterInputs"
                             id="confirmPassword"
                             type="password"
@@ -78,7 +84,7 @@ export default function Register() {
                     </FormGroup>
                     <div className="loginAndRegisterButtonRow">
                         <FormGroup>
-                            <Button className="loginAndRegisterButton">Register</Button>
+                            <Button className="loginAndRegisterButton" id="registerPageButton">Register</Button>
                         </FormGroup>
                         <em>
                             Already registered? <Link className="hyperlink" to="/login">Login</Link>
