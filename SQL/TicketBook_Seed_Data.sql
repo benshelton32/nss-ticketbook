@@ -39,7 +39,7 @@ INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (19, 'New York Yankees', 'NYY', 'Bronx, New York', '/Logos/MLB/NewYorkYankees.png', 1);
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (20, 'Oakland Athletics', 'OAK', 'Oakland, California', '/Logos/MLB/OaklandAthletics.png', 1);
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (21, 'Philadelphia Phillies', 'PHI', 'Philadelphia, Pennsylvania', '/Logos/MLB/PhiladelphiaPhillies.png', 1);
-INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (22, 'Pittsburgh Pirates', 'PIT', 'Pittsburgh, Pennsylvania', '/Logos/MLB/PittsburgPirates.png', 1);
+INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (22, 'Pittsburgh Pirates', 'PIT', 'Pittsburgh, Pennsylvania', '/Logos/MLB/PittsburghPirates.png', 1);
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (23, 'San Diego Padres', 'SD', 'San Diego, California', '/Logos/MLB/SanDiegoPadres.png', 1);
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (24, 'San Francisco Giants', 'SF', 'San Francisco, California', '/Logos/MLB/SanFransiscoGiants.png', 1);
 INSERT INTO [Team] ([Id], [Name], [Abbreviation], [Location], [Logo], [LeagueId]) VALUES (25, 'Seattle Mariners', 'SEA', 'Seattle, Washington', '/Logos/MLB/SeattleMariners.png', 1);
