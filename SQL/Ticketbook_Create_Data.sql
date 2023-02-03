@@ -1,6 +1,6 @@
 USE [master]
 
-IF db_id('TicketBook') IS NULl
+IF db_id('TicketBook') IS NULL
 BEGIN
     CREATE DATABASE [TicketBook]
 END;
